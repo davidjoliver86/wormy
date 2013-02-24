@@ -21,7 +21,8 @@ class Box(Engine):
 
 
 class Apple(Box):
-    DEFAULT_POINT_VALUE = 1000
+    DEFAULT_POINT_VALUE = 5000
+    DECAY_RATE = 0.99
     color = Colors.RED
 
     def __init__(self):
@@ -39,7 +40,7 @@ class Apple(Box):
         if reset:
             points_to_add, self.point_value = self.point_value, self.DEFAULT_POINT_VALUE
             return points_to_add
-        self.point_value = self.point_value * 995 / 1000
+        self.point_value = int(self.point_value * self.DECAY_RATE)
 
 
 class Worm(Box):
