@@ -123,7 +123,9 @@ def play(engine):
 
 def game_over(engine, message):
     gameover = engine.font.render("GAME OVER - {0}".format(message), 1, Colors.RED)
+    playagain = engine.font.render("Press space to play again or ESC to quit.", 1, Colors.WHITE)
     engine.surface.blit(gameover, (10, 10))
+    engine.surface.blit(playagain, (10, 30))
     pygame.display.update()
     while True:
         for event in pygame.event.get():
@@ -154,4 +156,4 @@ if __name__ == '__main__':
     pygame.init()
     pygame.event.set_allowed(None)
     pygame.event.set_allowed(2)
-    play(Engine())
+    play(Engine(title="It's wormylicious!"))
